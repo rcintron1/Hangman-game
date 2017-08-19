@@ -7,3 +7,27 @@ body{
 p{
   color: #fff;
 }
+
+/*Attempting to size text in site by size of screen*/
+div p {
+  font-size: 14px;
+}
+
+@include media-breakpoint-up(sm) {
+  div p {
+    font-size: 16px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  div p {
+    font-size: 20px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  div p {
+    font-size: 28px;
+  }
+}
+/*End of attempt to size text in site by size of screen*/
