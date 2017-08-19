@@ -8,6 +8,9 @@ var randomWord;
 var guessedLetters;
 // Location in page to place all selected letters
 var spanguessedL = document.getElementById("guessedL");
+// Location of underscores that will be replaced with correct letters
+var spanWord = document.getElementById("spanWord");
+
 
 // Eventhandler for key pressed
 document.onkeyup = function(event){
@@ -21,6 +24,7 @@ function startGame(){
   randomWord = varWords[Math.floor(Math.random() * varWords.length)];
   guessedLetters = "";
   spanguessedL.textContent = "";
+  replaceUnder();
 }
 
 // Function to see if letter is in random word
@@ -40,7 +44,7 @@ function replaceUnder(letter){
 
   }else{
     // create underscores on page, should only happen in beginning of game
-
+    spanWord.textContent = Array(randomWord.length + 1).join("_");
   }
 }
 startGame();

@@ -10,6 +10,9 @@ p,h1,h2,h3{
 #guessedL{
   color: red;
 }
+#spanWord{
+  letter-spacing: 2px;
+}
 /*Attempting to size text in site by size of screen*/
 div p {
   font-size: 14px;
