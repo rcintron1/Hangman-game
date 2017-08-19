@@ -29,6 +29,7 @@ function startGame(){
 
 // Function to see if letter is in random word
 function compareLetters(letter){
+  console.log("function->compareLetters")
   if(randomWord.includes(letter)){
     replaceUnder(letter);
   }else{
@@ -39,9 +40,18 @@ function compareLetters(letter){
 
 // function to replace underscore with matching letter
 function replaceUnder(letter){
+  console.log("function->replaceUnder")
   if (letter){
+    console.log("function->replaceUnder->if(letter)")
     //replace underscore where letter belongs
-
+    for (i=0; i<randomWord.length; i++){
+      if (letter == randomWord[i]){
+        x = spanWord.textContent;
+        x = x.substring(0,i) + letter + x.substring(i+1);
+        spanWord.textContent = x;
+        console.log(x);
+      }
+    }
   }else{
     // create underscores on page, should only happen in beginning of game
     spanWord.textContent = Array(randomWord.length + 1).join("_");

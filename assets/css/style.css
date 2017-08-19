@@ -11,7 +11,8 @@ p,h1,h2,h3{
   color: red;
 }
 #spanWord{
-  letter-spacing: 2px;
+  /*without this, you can't tell between the spaces on the random word*/
+  letter-spacing: 4px;
 }
 /*Attempting to size text in site by size of screen*/
 div p {
