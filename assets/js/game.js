@@ -23,7 +23,7 @@ var wrongLetters = 8;
 document.onkeyup = function(event){
   console.log("onkeyup:" + event.key);
   compareLetters(event.key);
-  setTimeout(checkGame(), 2000);
+  setTimeout(checkGame,2000);
 }
 
 // This clears up all the variables from the previous game and recreates
@@ -73,10 +73,12 @@ function checkGame(){
   console.log("function->checkGame")
   if (randomWordcharCount == 0){
     wins.textContent = Number(wins.textContent) + 1;
+    console.log("function->checkGame:You Won");
     alert("You Won");
     startGame();
   }else if (wrongLetters == 0) {
     losses.textContent = Number(losses.textContent) + 1;
+    console.log("function->checkGame:You Lose");
     alert("You Lose");
     startGame();
   }
