@@ -4,10 +4,12 @@ h1{
 body{
   background: black;
 }
-p{
+p,h1,h2,h3{
   color: #fff;
 }
-
+#guessedL{
+  color: red;
+}
 /*Attempting to size text in site by size of screen*/
 div p {
   font-size: 14px;
