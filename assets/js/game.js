@@ -23,8 +23,11 @@ var wrongLetters = 8;
 document.onkeyup = function(event){
   console.log("onkeyup:" + event.key);
   compareLetters(event.key);
+  setTimeout(checkGame(), 2000);
 }
 
+// This clears up all the variables from the previous game and recreates
+// the randomword
 function startGame(){
   //math.floor rounds up to the nearest whole number
   //Math.Random() returns a random float between 0 and 1 (including 0, excluding 1)
@@ -53,19 +56,21 @@ function compareLetters(letter){
     wrongLetters--;
   }
   usedLetters += letter;
-  setTimeout(checkGame(), 1000);
 }
 
+// checks for used letters
 function usedLetter(letter){
   if (usedLetters.includes(letter)){
-    console.log("")
+    console.log("function->usedLetter: " + letter + "used")
     return true;
   }else{
     return false;
   }
 }
 
+// Check to see if you have won or lost
 function checkGame(){
+  console.log("function->checkGame")
   if (randomWordcharCount == 0){
     wins.textContent = Number(wins.textContent) + 1;
     alert("You Won");
@@ -81,7 +86,7 @@ function checkGame(){
 function replaceUnder(letter){
   console.log("function->replaceUnder")
   if (letter){
-    console.log("function->replaceUnder->if(letter)")
+    console.log("function->replaceUnder->replacing underscore with char")
     //replace underscore where letter belongs
     for (i=0; i<randomWord.length; i++){
       if (letter == randomWord[i]){
@@ -93,6 +98,7 @@ function replaceUnder(letter){
       }
     }
   }else{
+    console.log("function->replaceUnder:NewGame")
     // create underscores on page, should only happen in beginning of game
     spanWord.textContent = Array(randomWord.length + 1).join("_");
     randomWordcharCount = randomWord.length
