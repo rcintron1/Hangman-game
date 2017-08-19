@@ -28,6 +28,7 @@ function startGame(){
 }
 
 // Function to see if letter is in random word
+// Also used to update the counts
 function compareLetters(letter){
   console.log("function->compareLetters")
   if(randomWord.includes(letter)){
