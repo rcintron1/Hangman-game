@@ -23,7 +23,7 @@ var wrongLetters = 8;
 document.onkeyup = function(event){
   console.log("onkeyup:" + event.key);
   compareLetters(event.key);
-  setTimeout(checkGame,2000);
+  setTimeout(checkGame,250);
 }
 
 // This clears up all the variables from the previous game and recreates
