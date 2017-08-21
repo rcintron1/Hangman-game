@@ -17,7 +17,10 @@ var wins = document.getElementById("wins");
 var losses = document.getElementById("losses");
 // Used to find out if all characters have been matched
 var randomWordcharCount = 0;
-var wrongLetters = 8;
+// Used to represent img in document imghm (for imagehangman)
+var imghm = document.getElementById("imghm");
+
+var wrongLetters;
 
 // Eventhandler for key pressed
 document.onkeyup = function(event){
@@ -36,7 +39,8 @@ function startGame(){
   usedLetters = "";
   spanguessedL.textContent = "";
   replaceUnder();
-  wrongLetters = 8;
+  wrongLetters = 0;
+  imghm.src = "";
 }
 
 // Function to see if letter is in random word
@@ -51,9 +55,11 @@ function compareLetters(letter){
   if(randomWord.includes(letter)){
     replaceUnder(letter);
   }else{
+    // user guessed wrong letter
     guessedLetters += letter;
     spanguessedL.textContent = guessedLetters;
-    wrongLetters--;
+    wrongLetters++;
+    imghm.src= "./assets/images/" + wrongLetters.toString() + ".jpg"
   }
   usedLetters += letter;
 }
@@ -76,7 +82,7 @@ function checkGame(){
     console.log("function->checkGame:You Won");
     alert("You Won");
     startGame();
-  }else if (wrongLetters == 0) {
+  }else if (wrongLetters == 8) {
     losses.textContent = Number(losses.textContent) + 1;
     console.log("function->checkGame:You Lose");
     alert("You Lose");
